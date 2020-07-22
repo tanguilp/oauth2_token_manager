@@ -5,7 +5,7 @@ defmodule OAuth2TokenManager.MixProject do
     [
       app: :oauth2_token_manager,
       description: "Manages OAuth2 tokens and OpenID Connect claims and ID tokens",
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       docs: [
@@ -30,11 +30,12 @@ defmodule OAuth2TokenManager.MixProject do
     [
       {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:jose_utils, "~> 0.1.0"},
+      {:hackney, "~> 1.0", optional: true},
+      {:jose_utils, "~> 0.2"},
       {:knigge, "~> 1.1"},
       {:oauth2_metadata_updater, "~> 1.0"},
       {:oauth2_utils, "~> 0.1.0"},
-      {:oidc, github: "tanguilp/oidc"},
+      {:oidc, "~> 0.2"},
       {:tesla_oauth2_client_auth, "~> 0.2.0"}
     ]
   end

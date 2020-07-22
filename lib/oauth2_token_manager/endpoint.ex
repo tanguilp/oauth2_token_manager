@@ -37,7 +37,7 @@ defmodule OAuth2TokenManager.Endpoint do
         | Application.get_env(:oauth2_token_manager, :tesla_middlewares, [])
       ]
 
-    {:ok, Tesla.client(middlewares)}
+    {:ok, Tesla.client(middlewares, tesla_adapter())}
   end
 
   def http_client(iss, _endpoint, client_conf, opts) do
@@ -64,10 +64,12 @@ defmodule OAuth2TokenManager.Endpoint do
           ++ (opts[:tesla_middlewares] || [])
           ++ Application.get_env(:oauth2_token_manager, :tesla_middlewares, [])
 
-        {:ok, Tesla.client(middlewares)}
+        {:ok, Tesla.client(middlewares, tesla_adapter())}
 
       {:error, _} ->
         {:error, %UnsupportedClientAuthenticationMethod{requested_method: auth_method}}
     end
   end
+
+  defp tesla_adapter(), do: Application.get_env(:tesla, :adapter, Tesla.Adapter.Hackney)
 end
