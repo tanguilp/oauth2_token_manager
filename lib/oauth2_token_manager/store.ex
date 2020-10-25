@@ -193,7 +193,10 @@ defmodule OAuth2TokenManager.Store do
   Returns an ID token for the subject
 
   There is no obligation to save all of the ID tokens. Instead, the most recent one is typically
-  preferred
+  preferred.
+
+  An expired ID token can be returned, so that implementation of some specifications, such as
+  OpenID Connect RP-initiated logout, can use expired but valid for their use-case ID tokens.
   """
   @callback get_id_token(OAuth2TokenManager.issuer(), OAuth2TokenManager.subject()) ::
   {:ok, OAuth2TokenManager.id_token() | nil}
