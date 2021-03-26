@@ -7,11 +7,9 @@ defmodule OAuth2TokenManager.Store do
   - refresh tokens
   - claims and ID token
   """
-  use Knigge, implementation: Application.get_env(
-    :oauth2_token_manager,
-    __MODULE__,
-    OAuth2TokenManager.Store.Local
-  )
+  use Knigge,
+    otp_app: :oauth2_token_manager,
+    default: OAuth2TokenManager.Store.Local
 
   @doc """
   Returns the access token and its metadata
