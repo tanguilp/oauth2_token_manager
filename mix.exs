@@ -32,7 +32,7 @@ defmodule OAuth2TokenManager.MixProject do
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       {:hackney, "~> 1.0", optional: true},
       {:jose_utils, "~> 0.2"},
-      {:knigge, "~> 1.1"},
+      {:knigge, "~> 1.4"},
       {:oauth2_metadata_updater, "~> 1.0"},
       {:oauth2_utils, "~> 0.1.0"},
       {:oidc, "~> 0.2"},
