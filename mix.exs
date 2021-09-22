@@ -5,7 +5,7 @@ defmodule OAuth2TokenManager.MixProject do
     [
       app: :oauth2_token_manager,
       description: "Manages OAuth2 tokens and OpenID Connect claims and ID tokens",
-      version: "0.2.0",
+      version: "0.3.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       docs: [
@@ -35,8 +35,8 @@ defmodule OAuth2TokenManager.MixProject do
       {:knigge, "~> 1.1"},
       {:oauth2_metadata_updater, "~> 1.0"},
       {:oauth2_utils, "~> 0.1.0"},
-      {:oidc, "~> 0.2"},
-      {:tesla_oauth2_client_auth, "~> 0.2.0"}
+      {:oidc, "~> 0.4"},
+      {:tesla_oauth2_client_auth, "~> 1.0"}
     ]
   end
 
